@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── ARGUS Design System — Global Base ────────────────── */
+
+:root {
+  /* Protocol F (FOUNDRY) + Protocol C (ENTERPRISE GRID) */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code',
+               ui-monospace, SFMono-Regular, monospace;
+
+  /* Panel sizing */
+  --panel-radius: 0.5rem;
+  --panel-border:  #27272a; /* zinc-800 */
+}
+
+/* ── Dark-only base ───────────────────────────────────── */
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #09090b; /* zinc-950 */
+  color: #f4f4f5;            /* zinc-100 */
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbars — Protocol F minimal style ────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46; /* zinc-700 */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b; /* zinc-600 */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+/* ── Focus ring — ARGUS accessibility contract ────────── */
+:focus-visible {
+  outline: 2px solid #a1a1aa; /* zinc-400 */
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove default focus ring where we provide custom */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Selection ────────────────────────────────────────── */
+::selection {
+  background: #fbbf2440; /* amber-400 at 25% */
+  color: #fef3c7;
+}
+
+/* ── Code pre — prevent overflow in panels ────────────── */
+pre {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ── Prevent layout shift during hydration ────────────── */
+[data-hydrating] {
+  visibility: hidden;
+}
